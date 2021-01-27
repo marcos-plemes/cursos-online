@@ -1,0 +1,12 @@
+POST http://localhost:9090/api/v1/student
+Content-Type: application/json
+
+{
+    "name": "Bilal",
+    "email": "bilal.ahmed@gmail.com",
+    "dob": "1995-12-17"
+}
+
+###
+
+DELETE http://localhost:9090/api/v1/student/1
