@@ -10,3 +10,7 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:9090/api/v1/student/1
+
+###
+
+PUT http://localhost:9090/api/v1/student/1?name=Maria
