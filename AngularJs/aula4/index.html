@@ -1,5 +1,6 @@
 <html ng-app="listaTelefonica">
 <head>
+    <meta charset="UTF-8">
     <title>Lista Telefonica</title>
     <link rel="stylesheet" type="text/css" href="../angular-1.8.2/docs/components/bootstrap-3.1.1/css/bootstrap.css">
     <style>
@@ -9,6 +10,9 @@
             margin-top: 20px;
             margin-left: auto;
             margin-right: auto;
+        }
+        h3 {
+            margin-bottom: 30px;
         }
         .table {
             margin-top: 20px;
@@ -24,8 +28,9 @@
         }
     </style>
     <script src="../angular-1.8.2/angular.js"></script>
+    <script src="../angular-1.8.2/angular-messages.js"></script>
     <script>
-        angular.module("listaTelefonica", []);
+        angular.module("listaTelefonica", ["ngMessages"]);
         angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($scope) {
             $scope.app = "Lista Telefonica";
             $scope.contatos = [
@@ -43,6 +48,7 @@
             $scope.adicionarContato = function(contato) {
                 $scope.contatos.push(angular.copy(contato));
                 delete $scope.contato;
+                $scope.contatoForm.$setPristine();
             };
             $scope.apagarContatos = function(contatos) {
                 $scope.contatos = contatos.filter(function (contato) {
@@ -77,12 +83,30 @@
             </tr>
         </table>
         <hr/>
-        <input class="form-control" type="text" ng-model="contato.nome" placeholder="Nome" />
-        <input class="form-control" type="text" ng-model="contato.telefone" placeholder="Telefone" />
-        <select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome for operadora in operadoras">
-            <option value="">selecione uma operadora</option>
-        </select>
-        <button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" ng-disabled="!contato.nome || !contato.telefone">Adicionar Contato</button>
+        <form name="contatoForm">
+            <input class="form-control" type="text" name="nome" ng-model="contato.nome" placeholder="Nome" ng-required="true" ng-minlength="10"/>
+            <input class="form-control" type="text" name="telefone" ng-model="contato.telefone" placeholder="Telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"/>
+            <select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome for operadora in operadoras">
+                <option value="">selecione uma operadora</option>
+            </select>
+        </form>
+
+		<div ng-messages="contatoForm.nome.$error" class="alert alert-danger">
+			<div ng-message="required">
+				Por favor, preencha o campo nome!
+			</div>
+			<div ng-message="minlength">
+				O campo nome deve ter no mínimo 10 caracteres.
+			</div>
+        </div>
+        
+        <div ng-show="contatoForm.telefone.$error.required && contatoForm.telefone.$dirty" class="alert alert-danger">
+            Por favor, preencha o campo telefone!
+        </div>
+        <div ng-show="contatoForm.telefone.$error.pattern" class="alert alert-danger">
+            O Campo telefone deve ter o formato DDDDD-DDDD.
+        </div>
+        <button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">Adicionar Contato</button>
         <button class="btn btn-danger btn-block" ng-click="apagarContatos(contatos)" ng-if="isContatoSelecionado(contatos)">Apagar Contatos</button>
     </div>
     <div ng-include="'footer.html'"></div>
