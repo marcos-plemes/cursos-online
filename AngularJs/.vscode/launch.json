@@ -51,6 +51,21 @@
       "port": 9290,
       "webRoot": "${workspaceFolder}",
       "url": "http://127.0.0.1:35113/p/AngularJs/aula06/ajax.html?_cmAuth\u003dpzxfqyzgfz"
+    },
+    {
+      "name": "Launch index.html",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9205,
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (6)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9240,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:35113/p/AngularJs/aula06/index.html?_cmAuth\u003dpzxfqyzgfz"
     }
   ]
 }
