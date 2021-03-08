@@ -90,6 +90,22 @@
       "port": 9283,
       "webRoot": "${workspaceFolder}",
       "url": "http://127.0.0.1:35113/p/AngularJs/aula9/index.html?_cmAuth\u003dpzxfqyzgfz"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (10)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9234,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:35113/p/AngularJs/aula11/index.html?_cmAuth\u003dpzxfqyzgfz"
+    },
+    {
+      "name": "Launch Chrome 127.0.0.1 (11)",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9284,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://127.0.0.1:35113/p/AngularJs/aula12/index.html?_cmAuth\u003dpzxfqyzgfz"
     }
   ]
 }
