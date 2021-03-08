@@ -17,12 +17,15 @@ public class ContatoDto {
 	private Date data;
 	
 	private OperadoraDto operadora;
+	
+	private String serial;
 
 	public ContatoDto(Contato contato) {
 		this.nome = contato.getNome();
 		this.telefone = contato.getTelefone();
 		this.data = contato.getData();
 		this.operadora = new OperadoraDto(contato.getOperadora());
+		this.serial = contato.getSerial();
 	}
 
 	public String getNome() {
@@ -41,7 +44,9 @@ public class ContatoDto {
 		return operadora;
 	}
 	
-	
+	public String getSerial() {
+		return serial;
+	}
 	
 	
 }

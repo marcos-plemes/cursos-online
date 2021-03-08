@@ -20,6 +20,8 @@ public class ContatoDtoCadastro {
 	private Date data;
 	
 	private OperadoraDtoCadastro operadora;
+	
+	private String serial;
 
 	public Long getId() {
 		return id;
@@ -41,7 +43,11 @@ public class ContatoDtoCadastro {
 		return operadora;
 	}
 	
+	public String getSerial() {
+		return serial;
+	}
+	
 	public Contato contatoDtoCadastroToContato() {
-		return new Contato(this.nome, this.telefone, this.data);
+		return new Contato(this.nome, this.telefone, this.data, this.serial);
 	}
 }

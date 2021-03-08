@@ -38,13 +38,17 @@ public class Contato {
 	@JoinColumn(name = "operadora", nullable = false)
 	private Operadora operadora;
 
+	@Column(name = "serial")
+	private String serial;
+	
 	public Contato() {
 	}
 	
-	public Contato(String nome, String telefone, Date data) {
+	public Contato(String nome, String telefone, Date data, String serial) {
 		this.nome = nome;
 		this.telefone = telefone;
 		this.data = data;
+		this.serial = serial;
 	}
 
 	public Long getId() {
@@ -85,6 +89,14 @@ public class Contato {
 
 	public void setOperadora(Operadora operadora) {
 		this.operadora = operadora;
+	}
+
+	public String getSerial() {
+		return serial;
+	}
+
+	public void setSerial(String serial) {
+		this.serial = serial;
 	}
 	
 	
