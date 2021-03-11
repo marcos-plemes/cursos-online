@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ContatoDto {
+	private Long id;
+	
 	private String nome;
 	
 	private String telefone;
@@ -21,6 +23,7 @@ public class ContatoDto {
 	private String serial;
 
 	public ContatoDto(Contato contato) {
+		this.id = contato.getId();
 		this.nome = contato.getNome();
 		this.telefone = contato.getTelefone();
 		this.data = contato.getData();
@@ -28,6 +31,10 @@ public class ContatoDto {
 		this.serial = contato.getSerial();
 	}
 
+	public Long getId() {
+		return id;
+	}
+	
 	public String getNome() {
 		return nome;
 	}

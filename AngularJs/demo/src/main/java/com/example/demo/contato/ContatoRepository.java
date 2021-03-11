@@ -31,6 +31,7 @@ public class ContatoRepository {
 	public List<ContatoDto> listarContatos() {
 		this.criteriaContato();
 		this.criteriaQuery.select(this.builder.construct(ContatoDto.class, this.contato));
+		this.criteriaQuery.orderBy(this.builder.asc(this.contato.get("id")));
 		return this.entityManager.createQuery(this.criteriaQuery).getResultList();
 	}
 	

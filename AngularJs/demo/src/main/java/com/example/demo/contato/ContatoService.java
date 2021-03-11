@@ -22,6 +22,10 @@ public class ContatoService {
 		return this.contatoRepository.listarContatos();
 	}
 	
+	public Contato buscarContato(Long id) {
+		return this.contatoRepository.buscarContato(id);
+	}
+	
 	@Transactional
 	public Long cadastrarContato(ContatoDtoCadastro dados) {
 		Contato entidade;
