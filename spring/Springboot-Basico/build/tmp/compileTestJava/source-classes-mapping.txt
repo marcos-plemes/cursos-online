@@ -1,2 +1,0 @@
-br/com/megasoftgyn/springbootbasico/SpringbootBasicoApplicationTests.java
- br.com.megasoftgyn.springbootbasico.SpringbootBasicoApplicationTests
